@@ -1,4 +1,4 @@
-# Reactive Shopping Hub
+# Reactive Shopping Hub ![Check Build](https://github.com/vipulDessai/reactive-shopping-sim/workflows/Check%20Build/badge.svg)
 User should be able to view set of products along with the details and should be able to add them to their shopping cart
 
 ## setup
