@@ -19,7 +19,9 @@ const getProducts = () => {
         axios.get('https://run.mocky.io/v3/aea5d98a-654d-4423-bd99-6fbb90843730')
             .then(
                 res => {
-                    dispatch({type: ProductsActions.GET_ALL, products: res.data});
+                    const responseDataProperty = res.data;
+                    const products = responseDataProperty.data;
+                    dispatch({type: ProductsActions.GET_ALL, products});
                 }
             )
             .catch(
