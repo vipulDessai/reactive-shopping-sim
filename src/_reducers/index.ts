@@ -7,3 +7,6 @@ export const rootReducer = combineReducers({
     products,
     cart
 });
+
+export * from './cartReducer';
+export * from './productsReducer';
