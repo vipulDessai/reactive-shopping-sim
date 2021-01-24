@@ -11,7 +11,7 @@ export function Header() {
     return (
         <header>
             <ul className="flex">
-                <li>Logo</li>
+                <li><h4 className="m-0">Reactive Shop</h4></li>
                 <li onClick={() => setShowCart(!showCart)} className={`${showCart ? 'close-cart-padding' : ''} pointer-hand`}>
                     {
                         !showCart && <>Cart <span>{cartItems && cartItems.length || '0'}</span></>

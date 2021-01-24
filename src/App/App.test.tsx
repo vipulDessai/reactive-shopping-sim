@@ -5,12 +5,18 @@ import { App } from '@/App';
 
 import { store } from '@/_helpers';
 
-test('renders login page', () => {
-  render(
-    <Provider store={store}>
-      <App />
-    </Provider>
-  );
-
-  expect(screen.getByText(/Logo/i)).toHaveTextContent('Logo');
+describe('render', () => {
+  test('renders landing page', () => {
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+  
+    expect(
+      screen.getByRole('heading', {
+        name: /reactive shop/i
+      })
+    ).toHaveTextContent('Reactive Shop');
+  });
 });
