@@ -5,7 +5,7 @@ $screen-md-max: 1024px;
 // Large tablets and desktops
 $screen-xl-max: 1440px;
 
-$primary-background: #dbdcdb;
+$primary-background: #b1b1b1;
 $secondery-background: #efefef;
 
 @mixin sm {
@@ -54,16 +54,22 @@ button {
         background-color: #52aa55; /* Dark Green */
     }
 }
+.pointer-hand {
+    cursor: pointer;
+}
 .flex {
     display: flex;
 }
-.active {
-    display: block;
+.align-center {
+    text-align: center;
 }
 header {
+    position: fixed;
+    width: 100%;
+    background-color: $secondery-background;
     & > ul {
         justify-content: space-between;
-        padding: 0 1em;
+        margin: 1em;
     }
     .cart {
         position: absolute;
@@ -91,8 +97,12 @@ header {
             }
         }
     }
+    .close-cart-padding {
+        padding: 0 10px;
+    }
 }
 section.catalog {
+    padding-top: 60px;
     ul, li {
         padding: 0.125em;
     }

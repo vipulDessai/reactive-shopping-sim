@@ -20,6 +20,9 @@ export function Cart() {
     return (
         <section className="cart">
             {
+                (!cartItems || cartItems && cartItems.length == 0) && <p className="align-center">Cart is empty</p>
+            }
+            {
                 cartItems && cartItems.map(
                     (product: Product, index) => {
                         return (
@@ -30,19 +33,19 @@ export function Cart() {
                                         <li>{product.name}</li>
                                         <li>
                                             <ul className="flex">
-                                                <li>Price: </li>
+                                                <li>Price:&nbsp;</li>
                                                 <li>{`${product.price} x ${product.cartQuantity} = ${parseFloat(product.price) * product.cartQuantity} ₹`}</li>
                                             </ul>
                                         </li>
                                         <li>
                                             <ul className="flex">
-                                                <li>QTY: </li>
+                                                <li>QTY:&nbsp;</li>
                                                 <li>{product.cartQuantity}</li>
                                             </ul>
                                         </li>
                                     </ul>
                                 </li>
-                                <li><button onClick={() => removeFromCart(product)}><FontAwesomeIcon icon="trash" /></button></li>
+                                <li><button className="pointer-hand" onClick={() => removeFromCart(product)}><FontAwesomeIcon icon="trash" /></button></li>
                             </ul>
                         )
                     }

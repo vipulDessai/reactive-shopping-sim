@@ -46,7 +46,7 @@ export function Catalog() {
                                         </ul>
                                     </li>
                                     {
-                                        product.cartQuantity < product.quantity && <li><button onClick={() => addToCart(product)}>Add to cart</button></li>
+                                        product.cartQuantity < product.quantity && <li><button className="pointer-hand" onClick={() => addToCart(product)}>Add to cart</button></li>
                                     }
                                     {
                                         product.cartQuantity === product.quantity && <li><button disabled>Add to cart</button></li>

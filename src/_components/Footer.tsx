@@ -2,6 +2,6 @@ import React from 'react';
 
 export function Footer() {
     return (
-        <p>Footer</p>
+        <p className="align-center">Developed by Vipul Dessai</p>
     );
 }
