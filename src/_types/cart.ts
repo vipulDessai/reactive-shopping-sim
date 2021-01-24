@@ -1,3 +1,5 @@
+import { Product } from "./product";
+
 export enum CartActionType {
     ADD = "add",
     DELETE = "delete",
@@ -5,8 +7,5 @@ export enum CartActionType {
 
 export type CartAction = {
     type: string;
-}
-
-export type CartState = {
-
+    product: Product;
 }
