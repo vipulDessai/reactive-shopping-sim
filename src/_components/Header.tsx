@@ -11,7 +11,7 @@ export function Header() {
         <header>
             <ul className="flex">
                 <li>Logo</li>
-                <li onClick={() => setShowCart(!showCart)}>Cart <span>{cartItems && cartItems.length}</span></li>
+                <li onClick={() => setShowCart(!showCart)}>Cart <span>{cartItems && cartItems.length || '0'}</span></li>
             </ul>
             {
                 showCart && <Cart />

@@ -35,10 +35,13 @@ $secondery-background: #efefef;
 }
 body {
     background: $primary-background;
+    margin: 0;
+    padding: 0;
 }
 li, ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 button {
     background-color: #94ca96; /* Green */
@@ -59,12 +62,32 @@ button {
 }
 header {
     & > ul {
-        justify-content: space-around;
+        justify-content: space-between;
+        padding: 0 1em;
     }
     .cart {
+        position: absolute;
+        top: 60px;
+        right: 0;  
+        background: $secondery-background;
+        width: 350px;
+        padding: 0.5em 0.5em 0.25em 0.5em;
         .cart-item {
-            img {
-                width: 50px;
+            align-items: center;
+            background: $primary-background;
+            margin-bottom: 0.25em;
+            & > li {
+                margin: 0.5em;
+                img {
+                    width: 50px;
+                }
+                button {
+                    font-size: 1.5em;
+                    padding: 0.25em;
+                }
+            }
+            & > li:nth-child(2) {
+                flex: 2;
             }
         }
     }

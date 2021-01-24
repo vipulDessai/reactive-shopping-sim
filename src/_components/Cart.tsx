@@ -30,19 +30,19 @@ export function Cart() {
                                         <li>{product.name}</li>
                                         <li>
                                             <ul className="flex">
-                                                <li>Price</li>
+                                                <li>Price: </li>
                                                 <li>{`${product.price} x ${product.cartQuantity} = ${parseFloat(product.price) * product.cartQuantity} ₹`}</li>
                                             </ul>
                                         </li>
                                         <li>
                                             <ul className="flex">
-                                                <li>Quantity</li>
+                                                <li>QTY: </li>
                                                 <li>{product.cartQuantity}</li>
                                             </ul>
                                         </li>
-                                        <li><button onClick={() => removeFromCart(product)}><FontAwesomeIcon icon="trash" /></button></li>
                                     </ul>
                                 </li>
+                                <li><button onClick={() => removeFromCart(product)}><FontAwesomeIcon icon="trash" /></button></li>
                             </ul>
                         )
                     }
