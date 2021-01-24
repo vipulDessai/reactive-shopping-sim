@@ -17,7 +17,7 @@ export function Catalog() {
     }
 
     return (
-        <section>
+        <section className="catalog">
             {
                 error && <p>Error: {error}</p>
             }

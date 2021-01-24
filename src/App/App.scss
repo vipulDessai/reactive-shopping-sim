@@ -1,4 +1,76 @@
+// Small tablets and large smartphones (landscape view)
+$screen-sm-max: 700px;
+// tablets
+$screen-md-max: 1024px;
+// Large tablets and desktops
+$screen-xl-max: 1440px;
+
+$primary-background: #dbdcdb;
+$secondery-background: #efefef;
+
+@mixin sm {
+    @media only screen and (max-width: $screen-sm-max) {
+        @content;
+    }
+}
+@mixin md {
+    @media only screen and (max-width: $screen-md-max) {
+        @content;
+    }
+}
+@mixin xl {
+    @media only screen and (max-width: $screen-xl-max) {
+        @content;
+    }
+}
+@mixin xxl {
+    @media only screen and (min-width: $screen-xl-max) {
+        @content;
+    }
+}
+
 // Global selectors
 * {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+body {
+    background: $primary-background;
+}
+li, ul {
+    list-style: none;
+    padding: 0;
+}
+button {
+    background-color: #94ca96; /* Green */
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: x-large;
+    border-radius: 4px;
+    &:hover {
+        background-color: #52aa55; /* Dark Green */
+    }
+}
+.flex {
+    display: flex;
+}
+.active {
+    display: block;
+}
+header {
+    & > ul {
+        justify-content: space-around;
+    }
+    .cart {
+        .cart-item {
+            img {
+                width: 50px;
+            }
+        }
+    }
+}
+section.catalog {
+    ul, li {
+        padding: 0.125em;
+    }
 }
