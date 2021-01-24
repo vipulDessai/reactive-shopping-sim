@@ -12,5 +12,5 @@ test('renders login page', () => {
     </Provider>
   );
 
-  expect(screen.getByText(/app/i)).toHaveTextContent('App');
+  expect(screen.getByText(/Logo/i)).toHaveTextContent('Logo');
 });

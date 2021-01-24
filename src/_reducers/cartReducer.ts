@@ -1,24 +1,12 @@
-export enum CartActionType {
-    ADD = "add",
-    UPDATE = "update",
-    DELETE = "delete",
+import { CartAction, CartActionType, Product, Products } from "@/_types";
+
+const cartInitialState: {products: Products<Product> | []} = {
+    products: []
 }
 
-type CartAction = {
-    type: string;
-
-}
-
-type CartState = {
-
-}
-
-export function cart(state = {}, action: CartAction) {
+export function cart(state = cartInitialState, action: CartAction) {
     switch (action.type) {
         case CartActionType.ADD:
-            return state;
-            
-        case CartActionType.UPDATE:
             return state;
 
         case CartActionType.DELETE:

@@ -1,12 +1,11 @@
 import { combineReducers } from 'redux';
 
-import { products } from './productsReducer';
+import { catalog } from './productsReducer';
 import { cart } from './cartReducer';
 
 export const rootReducer = combineReducers({
-    products,
+    catalog,
     cart
 });
 
-export * from './cartReducer';
-export * from './productsReducer';
+export type RootState = ReturnType<typeof rootReducer>;

@@ -1,30 +1,16 @@
-export enum ProductsActions {
-    GET_ALL = 'get_all',
-    ERROR = 'error',
+import { Product, Products, ProductsAction, ProductsActions } from "@/_types";
+
+const initialCatalogState: { products: Products<Product> | null, error: string | null } = {
+    products: null,
+    error: null,
 }
 
-type Product = {
-    "id": number,
-    "name": string,
-    "description": string,
-    "price": string,
-    "quantity": string,
-    "image": string
-}
-
-type Products<T> = [T] | [];
-
-type ProductsAction = {
-    type: string,
-    error: Object,
-    products: Products<Product>
-}
-
-export function products(state: { Products: Products<Product> } | {} = {}, action: ProductsAction) {
+export function catalog(state = initialCatalogState, action: ProductsAction) {
     switch (action.type) {
-        case ProductsActions.GET_ALL:
+        case ProductsActions.INIT:
             return {
                 ...state,
+                error: null,
                 products: action.products,
             };
 
@@ -32,6 +18,7 @@ export function products(state: { Products: Products<Product> } | {} = {}, actio
             return {
                 ...state,
                 error: action.error,
+                products: null
             };
     
         default:
