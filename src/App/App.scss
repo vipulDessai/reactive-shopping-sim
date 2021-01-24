@@ -68,6 +68,9 @@ button {
 .m-0 {
     margin: 0;
 }
+.w-100 {
+    width: 100%;
+}
 header {
     position: fixed;
     width: 100%;
@@ -118,7 +121,40 @@ header {
 }
 section.catalog {
     padding-top: 60px;
+    flex-wrap: wrap;
+    margin: 0 auto;
     ul, li {
         padding: 0.125em;
+    }
+    .tile {
+        width: 15em;
+        background: $secondery-background;
+        margin: 0 0.5em 0.5em 0;
+        img {
+            width: 100%;
+        }
+        @include sm {
+            width: 100%;
+        }
+    }
+    @include xl {
+        width: 1010px;
+    }
+    @include md {
+        width: 504px;
+    }
+    @include sm {
+        width: 350px;
+    }
+    @include xxl {
+        width: 1010px;
+    }
+}
+
+footer {
+    background: $secondery-background;
+    p {
+        margin: 0;
+        padding: 20px;
     }
 }

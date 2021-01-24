@@ -17,16 +17,15 @@ export function Catalog() {
     }
 
     return (
-        <section className="catalog">
+        <section className="catalog flex">
             {
-                error && <p>Error: {error}</p>
+                error && <p className="align-center w-100">Error: {error}</p>
             }
             {
                 products && products.map(
                     (product: ProductType, index) => 
                         {
                             const title: any = {
-                                "Name": product.name,
                                 "Description": product.description,
                                 "Price": `${product.price} ₹`,
                             }
@@ -34,14 +33,15 @@ export function Catalog() {
                             const updatedQuantity = typeof product.quantity === 'string' ? parseInt(product.quantity) - product.cartQuantity : product.quantity - product.cartQuantity;
 
                             return (
-                                <ul key={index}>
+                                <ul className="tile" key={index}>
                                     <li><img src={product.image} alt={`${product.image} # ${product.name}`} /></li>
+                                    <li><ul><li><b>{product.name}</b></li></ul></li>
                                     {
-                                        Object.keys(title).map((key, index) => <li key={index}><ul><li>{key}</li><li>{title[key]}</li></ul></li>)
+                                        Object.keys(title).map((key, index) => <li key={index}><ul><li><b>{key}</b></li><li>{title[key]}</li></ul></li>)
                                     }
                                     <li>
                                         <ul>
-                                            <li>Remaining QTY: </li>
+                                            <li><b>Remaining QTY: </b></li>
                                             <li>{`${updatedQuantity} / ${product.quantity}`}</li>
                                         </ul>
                                     </li>
