@@ -114,6 +114,12 @@ header {
                 flex: 2;
             }
         }
+        @include sm {
+            width: 300px;
+            font-size: 0.90em;
+            height: 250px;
+            overflow: scroll;
+        }
     }
     .close-cart-padding {
         padding: 0 10px;
