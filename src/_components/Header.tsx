@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import cartIcon from '@/_images/cart-icon.png';
+
 import { RootState } from '@/_reducers';
 import { Cart } from './Cart';
 
@@ -14,7 +16,7 @@ export function Header() {
                 <li><h4 className="m-0">Reactive Shop</h4></li>
                 <li onClick={() => setShowCart(!showCart)} className={`${showCart ? 'close-cart-padding' : ''} pointer-hand`}>
                     {
-                        !showCart && <>Cart <span>{cartItems && cartItems.length || '0'}</span></>
+                        !showCart && <><img className="cart-icon" src={cartIcon} alt="cart" /> <span className="cart-count">{cartItems && cartItems.length || '0'}</span></>
                     }
                     {
                         showCart && <FontAwesomeIcon icon="times-circle" />

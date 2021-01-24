@@ -37,6 +37,10 @@ const configs = {
                 test: /\.(s*)css$/,
                 use: ['style-loader', 'css-loader', 'sass-loader']
             },
+            {
+                test: /\.(png|jpg|svg)$/,
+                loader: 'url-loader'
+            },
         ]
     },
     plugins: [

@@ -7,6 +7,8 @@ $screen-xl-max: 1440px;
 
 $primary-background: #b1b1b1;
 $secondery-background: #efefef;
+$button-normal:#94ca96;
+$button-hover:#52aa55 ;
 
 @mixin sm {
     @media only screen and (max-width: $screen-sm-max) {
@@ -44,14 +46,14 @@ li, ul {
     margin: 0;
 }
 button {
-    background-color: #94ca96; /* Green */
+    background-color: $button-normal; /* Green */
     border: none;
     text-align: center;
     text-decoration: none;
     font-size: x-large;
     border-radius: 4px;
     &:hover {
-        background-color: #52aa55; /* Dark Green */
+        background-color: $button-hover; /* Dark Green */
     }
 }
 .pointer-hand {
@@ -73,6 +75,16 @@ header {
     & > ul {
         justify-content: space-between;
         margin: 1em;
+    }
+    .cart-icon {
+        width: 20px;
+        vertical-align: bottom;
+    }
+    .cart-count {
+        border-radius: 50%;
+        background: $button-hover;
+        padding: 1px 5px;
+        color: $secondery-background;
     }
     .cart {
         position: absolute;
