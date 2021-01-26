@@ -27,7 +27,7 @@ export function Cart() {
                     (product: Product, index) => {
                         return (
                             <ul className="cart-item flex" key={index}>
-                                <li><img src={product.image} alt={`${product.image} # ${product.name}`} /></li>
+                                <li><img src={product.image} alt={`${product.id} # ${product.name}`} /></li>
                                 <li>
                                     <ul>
                                         <li>{product.name}</li>
@@ -45,7 +45,7 @@ export function Cart() {
                                         </li>
                                     </ul>
                                 </li>
-                                <li><button className="pointer-hand" onClick={() => removeFromCart(product)}><FontAwesomeIcon icon="trash" /></button></li>
+                                <li><button className="pointer-hand" title={`Remove ${product.id}`} onClick={() => removeFromCart(product)}><FontAwesomeIcon icon="trash" /></button></li>
                             </ul>
                         )
                     }
