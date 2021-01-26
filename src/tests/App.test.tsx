@@ -242,7 +242,110 @@ describe('Fucntionality', () => {
   });
 
   test('Remove from cart', () => {
+    const catalogInitialState: {
+      cart: {
+        products: Products<Product>
+      }, 
+      catalog: {
+        products: Products<Product>,
+        error: null | string,
+      }
+    } = {
+      cart: {
+        products: [
+          {
+            "id": 1,
+            "name": "Product 1",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type ",
+            "price": "100.00",
+            "quantity": 3,
+            "cartQuantity": 3,
+            "image": "http://truth-events.com/wp-content/uploads/2019/09/dummy.jpg"
+          },
+          {
+            "id": 2,
+            "name": "Product 2",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ",
+            "price": "130.00",
+            "quantity": 2,
+            "cartQuantity": 2,
+            "image": "http://truth-events.com/wp-content/uploads/2019/09/dummy.jpg"
+          }
+        ]
+      },
+      catalog: {
+        products: [
+          {
+            "id": 1,
+            "name": "Product 1",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type ",
+            "price": "100.00",
+            "quantity": 3,
+            "cartQuantity": 3,
+            "image": "http://truth-events.com/wp-content/uploads/2019/09/dummy.jpg"
+          },
+          {
+            "id": 2,
+            "name": "Product 2",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ",
+            "price": "130.00",
+            "quantity": 2,
+            "cartQuantity": 2,
+            "image": "http://truth-events.com/wp-content/uploads/2019/09/dummy.jpg"
+          }
+        ],
+        error: null
+      }
+    };
+    const mockStore = createStore(
+      rootReducer,
+      catalogInitialState,
+      applyMiddleware(thunk)
+    );
 
+    render(
+      <Provider store={mockStore}>
+        <App />
+      </Provider>
+    );
+
+    userEvent.click(screen.getByAltText(/cart/i));
+
+    const cartProducts = catalogInitialState.cart.products;
+
+    // click on all the button till we can cart empty message
+    for (let i = 0; i < cartProducts.length; i++) {
+      const product = cartProducts[i];
+      const cartRemoveButton = screen.getByRole('button', {
+        name: `Remove ${product.id}`, exact: false
+      });
+      for (let j = 0; j < product.quantity; j++) {
+        userEvent.click(cartRemoveButton);
+      }
+    }
+
+    // view the cart empty message
+    expect(screen.getByText(/Cart is empty/i)).toBeInTheDocument();
+
+    const catalogProducts = catalogInitialState.catalog.products;
+    // check if they are disabled and
+    for (let i = 0; i < catalogProducts.length; i++) {
+      const product = catalogProducts[i];
+      const catalogAddToCartButton = screen.getByRole('button', {
+        name: `Add ${product.id}`, exact: false
+      });
+
+      expect(catalogAddToCartButton).not.toHaveAttribute('disabled');
+    
+      const productTile = within(
+        screen.getByRole('region', {
+          name: /catalog/i
+        })
+      ).getByTestId(`product-tile-${product.id}`);
+
+      const remainingQuantityElement = within(productTile).getByText('Remaining QTY:').closest('ul');
+      expect(within(remainingQuantityElement).getByText(`${product.quantity} / ${product.quantity}`, {exact: false})).toHaveTextContent(`${product.quantity} / ${product.quantity}`);
+    }
   });
 });
 
