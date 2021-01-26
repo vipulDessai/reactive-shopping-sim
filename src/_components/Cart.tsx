@@ -45,7 +45,7 @@ export function Cart() {
                                         </li>
                                     </ul>
                                 </li>
-                                <li><button className="pointer-hand" onClick={() => removeFromCart(product)}><FontAwesomeIcon icon="trash" /></button></li>
+                                <li><button className="pointer-hand" title={`remove ${product.id}`} onClick={() => removeFromCart(product)}><FontAwesomeIcon icon="trash" /></button></li>
                             </ul>
                         )
                     }

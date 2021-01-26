@@ -10,6 +10,8 @@ import { App } from '@/App';
 
 library.add( faTrash, faTimesCircle );
 
+export default library;
+
 ReactDOM.render(
     <Provider store={store}>
         <App />
