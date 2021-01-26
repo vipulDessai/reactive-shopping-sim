@@ -17,7 +17,7 @@ export function Catalog() {
     }
 
     return (
-        <section className="catalog flex">
+        <section aria-label="catalog" className="catalog flex">
             {
                 error && <p className="align-center w-100">Error: {error}</p>
             }
@@ -33,7 +33,7 @@ export function Catalog() {
                             const updatedQuantity = typeof product.quantity === 'string' ? parseInt(product.quantity) - product.cartQuantity : product.quantity - product.cartQuantity;
 
                             return (
-                                <ul className="tile" key={index}>
+                                <ul data-testid={`product-tile-${product.id}`} className="tile" key={index}>
                                     <li><img src={product.image} alt={`${product.image} # ${product.name}`} /></li>
                                     <li><ul><li><b>{product.name}</b></li></ul></li>
                                     {
@@ -46,10 +46,10 @@ export function Catalog() {
                                         </ul>
                                     </li>
                                     {
-                                        product.cartQuantity < product.quantity && <li><button className="pointer-hand" onClick={() => addToCart(product)}>Add to cart</button></li>
+                                        product.cartQuantity < product.quantity && <li><button title={`Add ${product.id}`} className="pointer-hand" onClick={() => addToCart(product)}>Add to cart</button></li>
                                     }
                                     {
-                                        product.cartQuantity === product.quantity && <li><button disabled>Add to cart</button></li>
+                                        product.cartQuantity === product.quantity && <li><button title={`Add ${product.id}`} disabled>Add to cart</button></li>
                                     }
                                 </ul>
                             )
