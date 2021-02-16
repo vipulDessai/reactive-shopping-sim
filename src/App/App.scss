@@ -144,6 +144,9 @@ section.catalog {
             margin: 0 0 0.5em 0;
         }
     }
+    @include xxl {
+        width: 1010px;
+    }
     @include xl {
         width: 1010px;
     }
@@ -152,9 +155,6 @@ section.catalog {
     }
     @include sm {
         width: 350px;
-    }
-    @include xxl {
-        width: 1010px;
     }
 }
 
